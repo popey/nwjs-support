@@ -1,0 +1,89 @@
+name: nwjs-support
+version: '0.1'
+summary: nwjs support remote part 
+description: |
+  Part to support nwjs applications (typically games) being snapped.
+
+grade: stable
+confinement: strict
+
+parts:
+  nwjs-support:
+    after:
+      - desktop-gtk2
+    stage-packages:
+      - gconf2
+      - libasound2
+      - libcurl3
+      - libexif12
+      - libgl1-mesa-glx
+      - libglu1-mesa
+      - libnotify4
+      - libnss3
+      - libpulse0
+      - libssl1.0.0
+      - libxss1
+      - libxtst6
+      - libmirclient9
+      - xdg-utils
+    filesets:
+      cruft_compilers_and_debuggers:
+        - -usr/bin/pdb3*
+        - -usr/bin
+      cruft_debhelper:
+        - -usr/bin/dh_*
+        - -usr/share/debhelper
+        - -usr/share/dh-python
+        - -usr/share/perl5/Debian
+      cruft_docs:
+        - -usr/share/doc
+        - -usr/share/doc-base
+      cruft_lintian:
+        - -usr/share/lintian
+      cruft_man_pages:
+        - -usr/share/man
+        - -share/man
+      cruft_meta:
+        - -usr/share/applications
+        - -usr/share/pixmaps
+        - -usr/share/icons
+        - -usr/share/bash-completion
+      cruft_python:
+        - -usr/lib/python*
+        - -usr/bin/python*
+      cruft_python_2to3:
+        - -usr/bin/2to3*
+        - -usr/lib/python*/lib2to3
+      cruft_python_idle:
+        - -usr/lib/python*/idlelib
+        - -usr/lib/python*/tkinter
+      cruft_python_pip:
+        - -lib/python*/site-packages/pip
+      cruft_python_setuptools:
+        - -lib/python*/site-packages/setuptools*
+      cruft_python_tests:
+        - -lib/python*/site-packages/tests
+      cruft_python_venv:
+        - -usr/lib/python*/venv
+      cruft_python_wheel:
+        - -lib/python*/site-packages/wheel*
+      cruft_x11:
+        - -usr/share/X11/XErrorDB
+      cruft_packaging:
+        - -usr/bin/dpkg*
+    prime:
+      - $cruft_compilers_and_debuggers
+      - $cruft_debhelper
+      - $cruft_docs
+      - $cruft_lintian
+      - $cruft_man_pages
+      - $cruft_meta
+      - $cruft_python
+      - $cruft_python_2to3
+      - $cruft_python_idle
+      - $cruft_python_pip
+      - $cruft_python_setuptools
+      - $cruft_python_tests
+      - $cruft_python_venv
+      - $cruft_python_wheel
+      - $cruft_packaging
