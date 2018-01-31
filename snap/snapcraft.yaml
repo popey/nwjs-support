@@ -10,8 +10,6 @@ confinement: strict
 parts:
   nwjs-support:
     plugin: nil
-    after:
-      - desktop-gtk2
     stage-packages:
       - gconf2
       - libasound2
